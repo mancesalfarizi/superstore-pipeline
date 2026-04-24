@@ -1,0 +1,30 @@
+version: 2
+
+models:
+  - name: stg_orders
+    description: "Silver — cleaned order lines, incremental by order_date"
+    columns:
+      - name: row_id
+        tests: [unique, not_null]
+      - name: order_date
+        tests: [not_null]
+      - name: sales
+        tests: [not_null]
+
+  - name: stg_customers
+    description: "Silver — deduplicated customer master"
+    columns:
+      - name: customer_id
+        tests: [unique, not_null]
+
+  - name: stg_products
+    description: "Silver — deduplicated product master using ROW_NUMBER()"
+    columns:
+      - name: product_id
+        tests: [unique, not_null]
+
+  - name: stg_locations
+    description: "Silver — unique location combinations"
+    columns:
+      - name: city
+        tests: [not_null]

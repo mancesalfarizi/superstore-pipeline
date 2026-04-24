@@ -1,0 +1,25 @@
+select
+    "Row ID"::integer             as row_id,
+    "Order ID"::varchar(50)       as order_id,
+    "Order Date"::varchar(20)     as order_date_raw,
+    "Ship Date"::varchar(20)      as ship_date_raw,
+    "Ship Mode"::varchar(50)      as ship_mode,
+    "Customer ID"::varchar(50)    as customer_id,
+    "Customer Name"::varchar(100) as customer_name,
+    "Segment"::varchar(50)        as segment,
+    "Country"::varchar(100)       as country,
+    "City"::varchar(100)          as city,
+    "State"::varchar(100)         as state,
+    "Postal Code"::varchar(20)    as postal_code,
+    "Region"::varchar(50)         as region,
+    "Product ID"::varchar(50)     as product_id,
+    "Category"::varchar(50)       as category,
+    "Sub-Category"::varchar(50)   as sub_category,
+    "Product Name"::varchar(200)  as product_name,
+    "Sales"::numeric(12,2)        as sales_raw,
+    "Quantity"::integer           as quantity_raw,
+    "Discount"::numeric(5,2)      as discount_raw,
+    "Profit"::numeric(12,2)       as profit_raw,
+    current_timestamp             as _loaded_at
+
+from {{ ref('superstore') }}

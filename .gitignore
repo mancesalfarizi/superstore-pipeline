@@ -1,0 +1,66 @@
+# ============================================================
+# DATA FILES
+# ============================================================
+# Raw dataset — download manually from Kaggle (see README Step 1)
+data/
+*.csv
+*.xlsx
+*.xls
+
+# ============================================================
+# DBT
+# ============================================================
+# dbt compiled SQL and run artifacts
+dbt/superstore/target/
+dbt/superstore/dbt_packages/
+dbt/superstore/logs/
+
+# dbt profiles — contains DB credentials, never commit this
+profiles.yml
+**/profiles.yml
+
+# ============================================================
+# DOCKER & ENVIRONMENT
+# ============================================================
+# Docker volumes (Postgres data, Airflow logs)
+volumes/
+postgres-data/
+airflow-logs/
+logs/
+
+# Local environment variables
+.env
+.env.*
+!.env.example
+
+# ============================================================
+# PYTHON
+# ============================================================
+__pycache__/
+*.py[cod]
+*.pyo
+.Python
+*.egg-info/
+dist/
+build/
+.eggs/
+venv/
+.venv/
+env/
+
+# ============================================================
+# METABASE
+# ============================================================
+# Metabase application data (auto-generated)
+metabase-data/
+metabase.db/
+
+# ============================================================
+# OS & EDITOR
+# ============================================================
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo

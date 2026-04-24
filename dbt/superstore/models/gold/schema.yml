@@ -1,0 +1,28 @@
+version: 2
+
+models:
+  - name: fct_sales
+    description: "Gold — core fact table, incremental by order_date"
+    columns:
+      - name: row_id
+        tests: [unique, not_null]
+      - name: order_date
+        tests: [not_null]
+      - name: sales
+        tests: [not_null]
+      - name: segment
+        tests:
+          - accepted_values:
+              values: ['Consumer', 'Corporate', 'Home Office']
+
+  - name: dim_customer
+    description: "Gold — customer dimension"
+    columns:
+      - name: customer_id
+        tests: [unique, not_null]
+
+  - name: dim_product
+    description: "Gold — product dimension"
+    columns:
+      - name: product_id
+        tests: [unique, not_null]
